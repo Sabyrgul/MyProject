@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class MainBankClass {
     public static void main(String[] args) throws LimitException {
         Scanner scanner=new Scanner(System.in);
-  BankAccount bankAccount=new BankAccount(20000);
+  BankAccount bankAccount=new BankAccount(0);
         System.out.println("Добро пожаловать!");
         while(true){
         System.out.println("Выберите действие: "
