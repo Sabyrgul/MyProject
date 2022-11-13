@@ -3,7 +3,7 @@ package Homework;
 import java.util.Scanner;
 
 public class MainBankClass {
-    public static void main(String[] args) throws LimitException {
+    public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
   BankAccount bankAccount=new BankAccount(0);
         System.out.println("Добро пожаловать!");
@@ -16,9 +16,14 @@ public class MainBankClass {
             case 2 -> {
                 while (true) {
                     System.out.println("Остаток на счету " + bankAccount.getAmount());
-                    bankAccount.setAmount(bankAccount.withDraw((int) bankAccount.getAmount()));
-                    if (bankAccount.getAmount() < 6000) ;
-                    if (bankAccount.getAmount() == 0) break;
+                    try {
+                        bankAccount.setAmount(bankAccount.withDraw((int) bankAccount.getAmount()));
+                    }catch (LimitException e){
+                        System.out.println(e.getMessage()+e.getRemainingAmount());
+                        bankAccount.setAmount(bankAccount.getAmount()-e.getRemainingAmount());
+                        System.out.println("Вы успешно сняли "+e.getRemainingAmount()+". Остаток "+bankAccount.getAmount());
+                    break;
+                    }
                 }
             }
             case 3->System.exit(0);
