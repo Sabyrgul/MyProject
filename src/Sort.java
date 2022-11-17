@@ -26,7 +26,8 @@ public class Sort {
             c.add(b.get(b.size()-1-i));
         }
         System.out.println(c);
-       // c.sort(Comparator.comparing());
+        System.out.println("------------------");
+    
 for(int i=0;i<c.size();i++){
     for(int j=i;j<c.size();j++){
         if(c.get(i).length()>c.get(j).length()){
@@ -36,7 +37,9 @@ for(int i=0;i<c.size();i++){
         }
     }
 }
+       
         System.out.println("Sorted list");
+        System.out.println(" ");
         System.out.println(c);
     }
 }
